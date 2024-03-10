@@ -4,24 +4,35 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-ws": "concurrently \"tsc -p tsconfig.ws.json --watch\" \"nodemon ./ws/dist/server.js\"",
+    "dev-all": "concurrently npm:dev npm:dev-ws",
     "build": "next build",
+    "build-ws": "tsc -p tsconfig.ws.json",
     "start": "next start",
+    "start-ws": "node ./ws/dist/server.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "daisyui": "^4.7.3",
+    "dayjs": "^1.11.10",
+    "next": "14.1.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.3"
+    "react-icons": "^5.0.1",
+    "ws": "^8.16.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/ws": "^8.5.10",
     "autoprefixer": "^10.0.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.3",
+    "nodemon": "^3.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.3"
+    "typescript": "^5"
   }
 }
